@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import BioremedationDiagram from './components/BioremedationDiagram'
 import AdvancedComponents from './components/AdvancedComponents'
+import InterdisciplinaryShowcase from './components/InterdisciplinaryShowcase'
+import CommunityVoices from './components/CommunityVoices'
+import EnvironmentalJustice from './components/EnvironmentalJustice'
+import PhasedApproach from './components/PhasedApproach'
+import HorizontalKnowledge from './components/HorizontalKnowledge'
+import Button from './components/ui/Button'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from './components/ui/Card'
+import Badge from './components/ui/Badge'
 import { 
   Leaf, 
   Droplets, 
@@ -23,23 +31,24 @@ import {
   Languages,
   X,
   FileText,
-  Download
+  Download,
+  CheckCircle
 } from 'lucide-react'
 
 
-// Asset placeholder URLs (can be replaced with actual imports later)
+// Asset URLs with real images relevant to the bioremediation project
 const assetPlaceholders = {
-  newRiverCrisis: 'https://via.placeholder.com/800x400/4CAF50/white?text=New+River+Crisis',
-  phytoremediationDiagram: 'https://via.placeholder.com/800x400/2196F3/white?text=Phytoremediation+Diagram',
-  environmentalImpactChart: 'https://via.placeholder.com/800x400/FF9800/white?text=Environmental+Impact',
-  socialImpactCommunity: 'https://via.placeholder.com/800x400/9C27B0/white?text=Social+Impact',
-  economicImpactGraph: 'https://via.placeholder.com/800x400/F44336/white?text=Economic+Impact',
-  scientificResearch: 'https://via.placeholder.com/800x400/607D8B/white?text=Scientific+Research',
-  personnelBudget: 'https://via.placeholder.com/800x400/795548/white?text=Personnel+Budget',
-  materialsSupplies: 'https://via.placeholder.com/800x400/3F51B5/white?text=Materials+Supplies',
-  travelLogistics: 'https://via.placeholder.com/800x400/E91E63/white?text=Travel+Logistics',
-  equipmentTechnology: 'https://via.placeholder.com/800x400/00BCD4/white?text=Equipment+Technology',
-  operationalExpenses: 'https://via.placeholder.com/800x400/8BC34A/white?text=Operational+Expenses'
+  newRiverCrisis: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  phytoremediationDiagram: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  environmentalImpactChart: 'https://images.unsplash.com/photo-1569163139394-de44cb06ed2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  socialImpactCommunity: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  economicImpactGraph: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  scientificResearch: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  personnelBudget: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  materialsSupplies: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  travelLogistics: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  equipmentTechnology: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  operationalExpenses: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 }
 
 // Image URLs from external source
@@ -925,6 +934,11 @@ function App() {
                 { key: 'hero', label: t.nav.inicio },
                 { key: 'crisis', label: t.nav.crisis },
                 { key: 'solution', label: t.nav.solucion },
+                { key: 'interdisciplinary', label: language === 'es' ? 'Interdisciplinario' : 'Interdisciplinary' },
+                { key: 'community-voices', label: language === 'es' ? 'Comunidad' : 'Community' },
+                { key: 'environmental-justice', label: language === 'es' ? 'Justicia' : 'Justice' },
+                { key: 'phased-approach', label: language === 'es' ? 'Fases' : 'Phases' },
+                { key: 'horizontal-knowledge', label: language === 'es' ? 'Conocimiento' : 'Knowledge' },
                 { key: 'plants', label: t.nav.plantas },
                 { key: 'impact', label: t.nav.impacto },
                 { key: 'budget', label: t.nav.presupuesto },
@@ -1189,7 +1203,7 @@ function App() {
             >
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img 
-                  src={phytoremediationDiagram}
+                  src={assetPlaceholders.phytoremediationDiagram}
                   alt="Phytoremediation Process" 
                   className="w-full h-96 object-cover bg-white"
                 />
@@ -1206,6 +1220,21 @@ function App() {
             </motion.div>
           </div>
         </section>
+
+        {/* Interdisciplinary Showcase Section */}
+        <InterdisciplinaryShowcase language={language} />
+
+        {/* Community Voices Section */}
+        <CommunityVoices language={language} />
+
+        {/* Environmental Justice Section */}
+        <EnvironmentalJustice language={language} />
+
+        {/* Phased Approach Section */}
+        <PhasedApproach language={language} />
+
+        {/* Horizontal Knowledge Section */}
+        <HorizontalKnowledge language={language} />
 
         {/* Plants Section */}
         <section id="plants" className="py-20 bg-gradient-to-br from-green-900/20 to-emerald-900/20 backdrop-blur-sm">
