@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import BioremedationDiagram from './components/BioremedationDiagram'
 import AdvancedComponents from './components/AdvancedComponents'
 import InterdisciplinaryShowcase from './components/InterdisciplinaryShowcase'
-import CommunityVoices from './components/CommunityVoices'
+// import CommunityVoices from './components/CommunityVoices'
 import EnvironmentalJustice from './components/EnvironmentalJustice'
 import PhasedApproach from './components/PhasedApproach'
 import HorizontalKnowledge from './components/HorizontalKnowledge'
@@ -38,7 +38,7 @@ import {
 
 // Asset URLs with real images relevant to the bioremediation project
 const assetPlaceholders = {
-  newRiverCrisis: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  newRiverCrisis: `${imageBaseUrl}/new_river.jpg
   phytoremediationDiagram: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   environmentalImpactChart: 'https://images.unsplash.com/photo-1569163139394-de44cb06ed2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
   socialImpactCommunity: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
@@ -1224,9 +1224,6 @@ function App() {
         {/* Interdisciplinary Showcase Section */}
         <InterdisciplinaryShowcase language={language} />
 
-        {/* Community Voices Section */}
-        <CommunityVoices language={language} />
-
         {/* Environmental Justice Section */}
         <EnvironmentalJustice language={language} />
 
@@ -1665,7 +1662,7 @@ function App() {
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <h3 className="text-3xl font-bold text-white mb-2">{selectedPlant.name}</h3>
-                  <p className="text-emerald-400 italic text-lg">{selectedPlant.scientific}</p>
+                  <p className="text-emerald-400 text-xl font-semibold">{selectedPlant.scientific}</p>
                 </div>
                 <button
                   onClick={() => setSelectedPlant(null)}
@@ -1706,7 +1703,7 @@ function App() {
               
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-white font-semibold mb-2 flex items-center">
+                  <h4 className="text-white font-semibold mb-3 flex items-center">
                     <Target className="h-5 w-5 mr-2 text-emerald-400" />
                     {language === 'es' ? 'Efectividad' : 'Effectiveness'}
                   </h4>
